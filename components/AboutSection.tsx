@@ -42,10 +42,9 @@ export const AboutSection = () => {
                     </p>
                     <br />
                     <p>
-                        I believe that you should {" "}
+                        {"I believe that you should "}
                         <span className='font-bold text-yellow-500'>{"never settle "}</span>
-                        and that's what I strive to do, I have a passion for developing and a desire to push myself as far as I can.
-                        I am excited to see where my career goes and am always open to new opportunities wherever that may take me. 
+                        {"and that's what I strive to do, I have a passion for developing and a desire to push myself as far as I can. I am excited to see where my career goes and am always open to new opportunities wherever that may take me."}
                     </p>
                 </div>
                 <div className='md:w-1/2'>
