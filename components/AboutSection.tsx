@@ -32,7 +32,7 @@ export const AboutSection = () => {
                     </p>
                     <br />
                     <p>
-                        I am currently doing my Bachelors degree in Computer Science in Iowa State University 
+                        I am currently pursuing my Bachelors degree in Computer Science in Iowa State University 
                         and will be graduating in December 2023.
                     </p>
                     <br />

@@ -6,8 +6,25 @@ import SlideUp from './SlideUp'
 
 const projects = [
     {
+        name: "Ebay Clone",
+        description: "A full stack application that is a clone of ebay. This was a great first look into how I could build out my own backend.",
+        tools: "Next.JS 13, ReactJS, Tailwind, Supabase, Prisma, Stripe",
+        image: "/ebay.png",
+        github: "https://github.com/noahwhlim/ebay-clone",
+        link: "https://github.com/noahwhlim/ebay-clone",
+    },
+    {
+        name: "Snake Game",
+        description: "A snake game that runs in the terminal on Mac and Windows.",
+        tools: "C++, ncurses",
+        image: "/snake.png",
+        github: "https://github.com/noahwhlim/Snake",
+        link: "https://github.com/noahwhlim/Snake",
+    },
+    {
         name: "Corn Cash Price Prediction",
         description: "A price prediction tool that was trained on data from USDA. Predicts prices of corn for the year with >95% accuracy.",
+        tools: "Python",
         image: "/corn.png",
         github: "http://github.com/noahwhlim/CornCashPrices",
         link: "https://github.com/noahwhlim/CornCashPrices",
@@ -15,17 +32,13 @@ const projects = [
     {
         name: "Touch Grass Discord Bot",
         description: "A simple Discord bot that utilizes API from www.openweathermap.org. Type !grass {location} to see if it's safe to go outside and touch some grass.",
+        tools: "Python",
         image: "/touch-grass.png",
         github: "https://github.com/noahwhlim/touch-grass",
         link: "https://github.com/noahwhlim/touch-grass",
     },
-    {
-        name: "Snake Game",
-        description: "A snake game that runs in the terminal on Mac and Windows. Built using the ncurses library in C++.",
-        image: "/snake.png",
-        github: "https://github.com/noahwhlim/Snake",
-        link: "https://github.com/noahwhlim/Snake",
-    },
+    
+    
 ];
 
     
@@ -56,7 +69,8 @@ export const ProjectSection = () => {
                                     </Link>
                                 </div>
                                 <div className='mt-12 md:w-1/2'>
-                                    <h1 className='text-4xl font-bold mb-6'>{item.name}</h1>
+                                    <h1 className='text-4xl font-bold mb-2'>{item.name}</h1>
+                                    <h2 className='textl-xl font-bold mb-4'>{item.tools}</h2>
                                     <p className='text-xl leading-7 mb-4 text-neutral-600 dark:text-neutral-400'>
                                         {item.description}
                                     </p>
