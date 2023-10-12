@@ -64,7 +64,7 @@ const Navbar = () => {
                                     <Link 
                                         key={idx} 
                                         to={item.page} 
-                                        className='block lg:inline-block hover:text-neutral-500 '
+                                        className='block lg:inline-block hover:text-neutral-500 cursor-pointer'
                                         activeClass='active'
                                         spy={true}
                                         smooth={true}
