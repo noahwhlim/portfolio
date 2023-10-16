@@ -14,6 +14,14 @@ const projects = [
         link: "https://github.com/noahwhlim/ebay-clone",
     },
     {
+        name: "Clouds",
+        description: "A minimal weather app designed to show only the essential information to be able to know how to dress with a quick glance.",
+        tools: "Expo, NativeWind",
+        image: "/clouds.png",
+        github: "https://github.com/noahwhlim/clouds",
+        link: "https://github.com/noahwhlim/clouds",
+    },
+    {
         name: "Snake Game",
         description: "A snake game that runs in the terminal on Mac and Windows.",
         tools: "C++, ncurses",
@@ -37,6 +45,7 @@ const projects = [
         github: "https://github.com/noahwhlim/touch-grass",
         link: "https://github.com/noahwhlim/touch-grass",
     },
+    
     
     
 ];
