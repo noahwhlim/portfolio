@@ -1,0 +1,39 @@
+---
+title: "Learning AWS"
+summary: "Hosting a static site on S3"
+publishedAt: "2024-01-28"
+---
+
+I recently finished my AWS Cloud Practitioner course and I wanted to put it to use. Since I have had some experience with NextJS, I thought that hosting a static site with S3 would be a good first step in familiarizing myself with AWS services.
+
+## Services used
+
+**Route 53**
+ - Purchase and register domain
+ - Points domain name to server IP
+
+**CloudFront**
+ - Caches and distributes the static content globally
+ - Provide SSL/TLS support
+
+**S3**
+ - Storing and serving pages
+
+**Certificate Manager**
+- Request for SSL/TLS certificate
+
+## Process
+1. Create two S3 buckets (one with www and one without)
+2. Configure buckets for public access and upload files
+3. Set up domain on Route 53 to route to S3 buckets
+4. Set up CloudFront distribution for both S3 buckets
+5. Request for certificate on Certificate Manager
+6. Change Route 53 to route to CloudFront distributions
+
+
+## Flowchart
+
+This flowchart shows something similar to what I have set up minus API-GW.
+
+![DNS resolution and request flow using custom domains](https://d2908q01vomqb2.cloudfront.net/5b384ce32d8cdef02bc3a139d4cac0a22bb029e8/2022/05/20/multi-region-active-active-DNS-SSL-Certs-Numbers-1024x651.png)
+

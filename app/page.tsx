@@ -1,24 +1,51 @@
-import Image from 'next/image'
-import { HeroSection } from '@/components/HeroSection'
-import { AboutSection } from '@/components/AboutSection'
-import { ProjectSection } from '@/components/ProjectSection'
-import type { Metadata } from 'next'
- 
-export const metadata: Metadata = {
-  title: 'Noah Lim',
-  description: "Noah Lim's Portfolio",
-  icons: {
-    icon: "https://fontawesome.com/icons/hand-wave?f=classic&s=solid&pc=%23ffdd00",
-    apple: "https://fontawesome.com/icons/hand-wave?f=classic&s=solid&pc=%23ffdd00"
-  }
-}
+import { BlogPostsPreview } from "app/components/posts";
+import { ProjectsPostsPreview } from "app/components/projects";
+import Skills from "./components/skills";
 
-export default function Home() {
+export default function Page() {
   return (
-      <main className='mx-auto max-w-3xl px-4 sm:px-6 md:max-w-5xl'>
-         <HeroSection />
-         <AboutSection />
-         <ProjectSection />
-      </main>
-  )
+    <section>
+      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
+        My Portfolio
+      </h1>
+      <p className="mb-4">
+        {`I'm a Software Developer based in Dallas, TX, with a 
+        background in Computer Science and Data Science from Iowa 
+        State University. I have a passion for writing clean, 
+        maintainable code, always prioritizing simplicity and 
+        functionality. Keeping things simple is a big part of how I 
+        approach both life and coding. This is where I share my 
+        projects, ideas, and experiments, and I’m always looking to 
+        connect with others who appreciate building thoughtful, 
+        efficient solutions.`}
+      </p>
+
+      <div className="my-8">
+        <h2 className="mb-4 text-lg font-semibold tracking-normal">
+          Technical Skills
+        </h2>
+        <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
+          {/* <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
+            Java
+          </p>
+          <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
+            {">_React"}
+          </p> */}
+          <Skills />
+        </div>
+      </div>
+
+      <div className="my-8">
+        <h2 className="mb-4 text-lg font-semibold tracking-normal">Blog</h2>
+        <BlogPostsPreview />
+      </div>
+
+      <div className="my-8">
+        <h2 className="mb-4 text-lg font-semibold tracking-normal">
+          Projects
+        </h2>
+        <ProjectsPostsPreview />
+      </div>
+    </section>
+  );
 }
