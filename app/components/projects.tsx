@@ -37,7 +37,6 @@ export function ProjectsPosts() {
 
 export function ProjectsPostsPreview() {
   let allProjects = getProjectsPosts()
-  allProjects.slice(Math.max(allProjects.length - 3, 0))
 
   return (
     <div>
@@ -50,6 +49,7 @@ export function ProjectsPostsPreview() {
           }
           return 1
         })
+        .slice(0, 3)
         .map((post) => (
           <Link
             key={post.slug}
