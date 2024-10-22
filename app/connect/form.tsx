@@ -11,24 +11,44 @@ export default function Form() {
     setSending(true);
     setResult("sending....");
     const formData = new FormData(event.target);
+    // console.log(formData);
 
-    const access_key = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
-    if (access_key) {
-      formData.append("access_key", access_key);
-    } else {
-      console.error("NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is not defined");
-      setResult("error: access key is missing");
-      return;
-    }
+    // const call_api = handler(formData);
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
+    // const access_key = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    // if (access_key) {
+    //   formData.append("access_key", access_key);
+    // } else {
+    //   console.error("NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is not defined");
+    //   setResult("error: access key is missing");
+    //   return;
+    // }
 
-    const data = await response.json();
+    const pack = JSON.stringify(Object.fromEntries(formData))
+    // console.log("data sent: ", pack)
+    // console.log("typeof data sent: ", typeof pack)
+    
+    // console.log("after parsing:", JSON.parse(pack))
+    // const pack = JSON.stringify(formData)
 
-    if (data.success) {
+    const response = await fetch(
+      "https://skhffwgwk54wtuqwcb3gnc6dyy0tppwd.lambda-url.us-east-1.on.aws/",
+      {
+        method: "POST",
+        body: pack,
+        // body: formData,
+        headers: {
+          // "Access-Control-Allow-Origin": "http://localhost:3000", // Allow all origins
+          "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type", 
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    // const { statusCode, data } = await call_api;
+
+    if (response.status === 200) {
       setResult("message sent successfully");
       setTimeout(() => {
         setResult("send");
@@ -36,9 +56,9 @@ export default function Form() {
       }, 5000);
       event.target.reset();
     } else {
-      console.log("Error: ", data);
+      console.log("Error: ", response);
       setSending(false);
-      setResult(data.message);
+      setResult("error sending message");
     }
   };
 
