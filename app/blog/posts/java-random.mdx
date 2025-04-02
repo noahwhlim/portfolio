@@ -1,0 +1,32 @@
+---
+title: "Why Java Random Isn’t Really Random"
+summary: "Explaining why Java Random isn't random"
+publishedAt: "2025-04-01"
+---
+
+# Why `java.util.Random` Isn’t Really Random
+
+If you’ve ever used Java’s `Random` class, you might assume it gives you completely unpredictable numbers. But here’s the thing—it’s not actually random. It just **looks** random.
+
+### **The Illusion**
+
+The numbers `Random` generates aren’t truly random; they’re **pseudorandom**. That means they’re created using a formula that always follows the same pattern. At the heart of it is something called a **seed**, which is just a starting number. Given a seed, you will always get the same sequence of “random” numbers.
+
+This is because Java’s `Random` class relies on a **pseudorandom number generator (PRNG)**—basically, a math equation that takes the seed and repeatedly calculates new numbers from it. The result is numbers that seem random, but can be predicted if you know the seed and formula.
+
+### **Why?**
+
+There’s actually a good reason for this approach:
+
+-   **It’s fast.** Generating numbers with a formula is way quicker than gathering real-world randomness.
+-   **It’s repeatable.** If you’re writing a game or testing software, being able to recreate the same sequence of numbers can be really helpful.
+-   **It’s good enough.** For things like rolling dice or shuffling cards, pseudorandom numbers work just fine.
+
+### **What If You Need Real Randomness?**
+
+If you’re doing something where predictability is a bad thing—like encryption or security-related code—you’ll need something stronger. That’s where `SecureRandom` comes in. Unlike `Random`, it pulls from unpredictable sources (like system hardware and events), making it much harder to guess the next number.
+
+### Conclusion
+
+Java’s `Random` isn’t really random. It’s great for everyday programming but not for situations where true unpredictability matters. If you ever need randomness that **can’t** be predicted, look into `SecureRandom` instead.
+
