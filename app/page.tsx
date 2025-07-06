@@ -11,7 +11,7 @@ export default function Page() {
         My Portfolio
       </h1>
       <p className="mb-4">
-        {`I'm a Software Developer based in Dallas, TX, with a 
+        {/* {`I'm a Software Developer based in Dallas, TX, with a 
         background in Computer Science and Data Science from Iowa 
         State University. I have a passion for writing clean, 
         maintainable code, always prioritizing simplicity and 
@@ -19,7 +19,8 @@ export default function Page() {
         approach both life and coding. This is where I share my 
         projects, ideas, and experiments, and I’m always looking to 
         connect with others who appreciate building thoughtful, 
-        efficient solutions.`}
+        efficient solutions.`} */}
+        testing123
       </p>
 
       <div className="my-8">
