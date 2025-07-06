@@ -1,12 +1,11 @@
 import { BlogPostsPreview } from "app/components/posts";
 import { ProjectsPostsPreview } from "app/components/projects";
 import Skills from "./components/skills";
-import Image from "next/image";
 
 export default function Page() {
   return (
     <section>
-      <Image src={"profile.jpg"} width={130} height={130} alt={"profile photo"} className="rounded-full mb-4"/>
+      <img src={"profile.jpg"} width={130} height={130} alt={"profile photo"} className="rounded-full mb-4"/>
       <h1 className="mb-8 text-2xl font-semibold tracking-normal">
         My Portfolio
       </h1>
