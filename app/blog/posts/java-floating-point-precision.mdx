@@ -1,0 +1,31 @@
+---
+title: "Floating-Point Precision Issues in Java"
+summary: "Explaining why Floating Point Precision Issues"
+publishedAt: "2025-04-02"
+---
+
+
+Floating-point arithmetic in Java is often inaccurate due to how numbers are stored in memory. Java follows the IEEE 754 standard, meaning many decimal values cannot be exactly represented in binary. This results in small rounding errors that can accumulate over time.
+
+### **Why Do These Precision Errors Exist?**
+
+Floating-point numbers are stored in **binary (base-2)**, but many decimal fractions, like `0.1`, do not have an exact binary representation. Just as `1/3` in decimal creates an infinite repeating `0.3333...`, `0.1` in binary becomes `0.000110011001100110...` repeating forever. Since computers have limited storage, they **truncate** the number, introducing small rounding errors.
+
+Java represents `double` using **64 bits**, with a **sign bit, exponent, and mantissa**. Because of this limited space, numbers like `0.1` and `0.2` are stored as approximations, causing issues in calculations. This is why `0.1 + 0.2 == 0.3` evaluates to `false`.
+
+### **How to Handle Floating-Point Precision Issues**
+
+1. **Use BigDecimal for Precise Arithmetic**
+    
+    Instead of `double`, use `BigDecimal("0.1").add(new BigDecimal("0.2"))`, which correctly results in `0.3`. Always use the `String` constructor, as `new BigDecimal(0.1)` still suffers from precision issues.
+    
+2. **Avoid Direct Comparisons**
+    
+    Since `==` is unreliable, compare floating-point numbers using a tolerance: `Math.abs(a - b) < 0.00001`.
+    
+3. **Understand Java’s Rounding Behavior**
+    
+    Java's `Math.round(2.5)` results in `3`, but `Math.round(-2.5)` gives `-2` due to **bankers' rounding**.
+    
+
+Since integers are stored exactly in binary, they don’t suffer from these issues. However, for floating-point calculations, it’s essential to understand these quirks to avoid unexpected results.

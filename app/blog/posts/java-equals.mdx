@@ -1,0 +1,16 @@
+---
+title: "Why `==` Doesn’t Work as Expected with Strings in Java"
+summary: "Explaining Java's `==`"
+publishedAt: "2025-04-03"
+---
+
+
+Comparing strings using `==` in Java is a common source of confusion, especially for beginners. The issue stems from how Java handles object references versus content.
+
+The `==` operator checks whether two references point to the exact same object in memory. In some cases, such as `String a = "hello"` and `String b = "hello"`, `a == b` returns `true` because Java interns string literals, storing them in a shared pool. However, when using `new String("hello")`, each call creates a new object. As a result, `a == b` would return `false` even if the content is identical.
+
+To compare the actual contents of two strings, the correct approach is to use `a.equals(b)`. This method checks the value stored in the objects rather than their memory addresses. In cases where either string might be `null`, `Objects.equals(a, b)` offers a safer alternative by avoiding `NullPointerException`.
+
+Understanding this distinction is important for writing reliable code. Java’s string interning and immutability can make reference comparisons work in some situations, but relying on that behavior is risky and can lead to subtle bugs.
+
+For consistent and accurate results, use `.equals()` when comparing string values. Reserve `==` for scenarios where reference equality is explicitly required.
